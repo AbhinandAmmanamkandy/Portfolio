@@ -6,7 +6,7 @@ export const portfolioData: PortfolioData = {
     name: 'Abhinand Ammanamkandy',
     title: 'Full-Stack Software Engineer',
     subtitle: 'Crafting Premium Digital Experiences',
-    bio: 'A passionate developer specializing in building beautiful, high-performance web applications using React, TypeScript, and modern ecosystem tools. Focused on clean code, micro-animations, and outstanding user experiences.',
+    bio: '200+ LeetCode problems solved, building a strong foundation in Data Structures and Algorithms. Continuously improving algorithmic thinking, coding efficiency, and analytical problem-solving through consistent practice.',
     location: 'Kozhikode, Kerala, India',
     email: 'abhinandammanamkandy@gmail.com',
     phone: '+91 8921640287',
