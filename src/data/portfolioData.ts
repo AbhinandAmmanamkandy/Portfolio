@@ -7,30 +7,30 @@ export const portfolioData: PortfolioData = {
     title: 'Full-Stack Software Engineer',
     subtitle: 'Crafting Premium Digital Experiences',
     bio: 'A passionate developer specializing in building beautiful, high-performance web applications using React, TypeScript, and modern ecosystem tools. Focused on clean code, micro-animations, and outstanding user experiences.',
-    location: 'Bangalore, India',
-    email: 'abhinand.dev@example.com',
-    phone: '+91 98765 43210',
+    location: 'Kozhikode, Kerala, India',
+    email: 'abhinandammanamkandy@gmail.com',
+    phone: '+91 8921640287',
     resumeUrl: '#',
     avatar: heroImg,
   },
   socials: {
     github: 'https://github.com/AbhinandAmmanamkandy',
-    linkedin: 'https://linkedin.com',
-    twitter: 'https://x.com',
-    email: 'mailto:abhinand.dev@example.com',
+    linkedin: 'https://in.linkedin.com/in/abhinandammanamkandy',
+    twitter: 'https://x.com/AbhinandAmmanam',
+    email: 'mailto:abhinandammanamkandy@gmail.com',
   },
   skills: [
     {
       category: 'Frontend Engineering',
-      items: ['React', 'TypeScript', 'Next.js', 'Redux Toolkit', 'HTML5 & CSS3', 'Sass / SCSS', 'Vite', 'Tailwind CSS']
+      items: ['React', 'TypeScript', 'HTML5 & CSS3', 'Vite', 'Tailwind CSS']
     },
     {
       category: 'Backend & Databases',
-      items: ['Node.js', 'Express.js', 'RESTful APIs', 'GraphQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase']
+      items: ['Node.js', 'Express.js', 'RESTful APIs', 'GraphQL', 'PostgreSQL', 'MongoDB', 'Redis']
     },
     {
       category: 'Tools & DevOps',
-      items: ['Git & GitHub', 'Docker', 'AWS (S3/EC2)', 'Vercel / Netlify', 'CI/CD Pipelines', 'Figma', 'Oxlint / ESLint', 'Jest']
+      items: ['Git & GitHub', 'Docker', 'Vercel / Netlify', 'Figma']
     }
   ],
   projects: [
@@ -68,17 +68,17 @@ export const portfolioData: PortfolioData = {
   experience: [
     {
       id: 1,
-      role: 'Full-Stack Software Engineer',
-      company: 'Creative Digital Solutions',
-      duration: '2024 - Present',
-      description: 'Engineered responsive single-page applications and dashboards. Designed and integrated REST and GraphQL endpoints in Node.js, boosting data loading efficiency by 30%. Implemented responsive component libraries.'
+      role: 'Backend Developer',
+      company: 'BufferBytes Technologies',
+      duration: '2025 - Present',
+      description: 'Architecting and optimizing secure, scalable RESTful APIs using Django and Django REST Framework. Streamlining database query performance, designing robust relational schemas in PostgreSQL/MongoDB, and integrating third-party services to support high-traffic applications.'
     },
     {
       id: 2,
-      role: 'Frontend Developer Intern',
-      company: 'PixelCraft Labs',
-      duration: '2023 - 2024',
-      description: 'Developed interactive custom UI widgets and page layouts. Conducted automated testing and linter code reviews with Jest and ESLint. Integrated content management services for production clients.'
+      role: 'Backend Developer Intern',
+      company: 'BufferBytes Technologies',
+      duration: '2025 - 2025',
+      description: 'Designed and built custom RESTful endpoints with Python and Django. Implemented user authentication, conducted unit testing, and automated routine data sync jobs, learning best practices in backend engineering and database design.'
     }
   ]
 };

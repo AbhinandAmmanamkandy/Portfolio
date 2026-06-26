@@ -1,9 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { PersonalDetails } from '../types/portfolio';
 
 interface AboutProps {
   personal: PersonalDetails;
 }
+
+interface StatCardProps {
+  endValue: number;
+  label: string;
+  suffix?: string;
+}
+
+const StatCard: React.FC<StatCardProps> = ({ endValue, label, suffix = '' }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let start = 0;
+          const duration = 1200; // Animation duration in ms
+          const increment = endValue / (duration / 16); // ~60fps
+          
+          const timer = setInterval(() => {
+            start += increment;
+            if (start >= endValue) {
+              setCount(endValue);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(start));
+            }
+          }, 16);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [endValue, hasAnimated]);
+
+  return (
+    <div ref={cardRef} className="stat-card glass-card">
+      <div className="stat-number">
+        {count}{suffix}
+      </div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+};
 
 export const About: React.FC<AboutProps> = ({ personal }) => {
   return (
@@ -35,22 +87,10 @@ export const About: React.FC<AboutProps> = ({ personal }) => {
           </div>
 
           <div className="about-stats">
-            <div className="stat-card glass-card">
-              <div className="stat-number">2+</div>
-              <div className="stat-label">Years of Experience</div>
-            </div>
-            <div className="stat-card glass-card">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-card glass-card">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Open Source Contributions</div>
-            </div>
-            <div className="stat-card glass-card">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Client Satisfaction</div>
-            </div>
+            <StatCard endValue={2} label="Years of Experience" suffix="+" />
+            <StatCard endValue={15} label="Projects Completed" suffix="+" />
+            <StatCard endValue={5} label="Open Source Contributions" suffix="+" />
+            <StatCard endValue={100} label="Client Satisfaction" suffix="%" />
           </div>
         </div>
       </div>

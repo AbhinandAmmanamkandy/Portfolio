@@ -76,94 +76,92 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
           </div>
 
           <div className="contact-form-wrap glass-card">
-            {formSubmitted ? (
-              <div className="form-success-banner">
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--success)' }}>
-                  <Icons.Check />
-                </div>
-                <h4>Message Sent Successfully!</h4>
-                <p>Thank you for reaching out. I will get back to you as soon as possible.</p>
+            <div className={`form-success-banner ${formSubmitted ? 'visible' : ''}`}>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--success)' }}>
+                <Icons.Check />
               </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} id="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name-input" className="form-label">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name-input"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="John Doe"
-                    className="form-input"
-                    required
-                  />
-                </div>
+              <h4>Message Sent Successfully!</h4>
+              <p>Thank you for reaching out. I will get back to you as soon as possible.</p>
+            </div>
 
-                <div className="form-group">
-                  <label htmlFor="email-input" className="form-label">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email-input"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="john@example.com"
-                    className="form-input"
-                    required
-                  />
-                </div>
+            <form onSubmit={handleFormSubmit} id="contact-form" className={formSubmitted ? 'hidden' : ''}>
+              <div className="form-group">
+                <label htmlFor="name-input" className="form-label">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name-input"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="John Doe"
+                  className="form-input"
+                  required
+                />
+              </div>
 
-                <div className="form-group">
-                  <label htmlFor="subject-input" className="form-label">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject-input"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="Project Inquiry"
-                    className="form-input"
-                  />
-                </div>
+              <div className="form-group">
+                <label htmlFor="email-input" className="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email-input"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="john@example.com"
+                  className="form-input"
+                  required
+                />
+              </div>
 
-                <div className="form-group">
-                  <label htmlFor="message-input" className="form-label">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message-input"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me about your project..."
-                    className="form-input"
-                    required
-                  ></textarea>
-                </div>
+              <div className="form-group">
+                <label htmlFor="subject-input" className="form-label">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject-input"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  placeholder="Project Inquiry"
+                  className="form-input"
+                />
+              </div>
 
-                <button
-                  type="submit"
-                  className="btn btn-primary submit-btn"
-                  disabled={formLoading}
-                  id="submit-form-btn"
-                >
-                  {formLoading ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      Send Message <Icons.Send />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+              <div className="form-group">
+                <label htmlFor="message-input" className="form-label">
+                  Your Message
+                </label>
+                <textarea
+                  id="message-input"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Tell me about your project..."
+                  className="form-input"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-primary submit-btn"
+                disabled={formLoading}
+                id="submit-form-btn"
+              >
+                {formLoading ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    Send Message <Icons.Send />
+                  </>
+                )}
+              </button>
+            </form>
           </div>
         </div>
       </div>

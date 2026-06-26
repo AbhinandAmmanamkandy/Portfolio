@@ -35,7 +35,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
 
         <div className="projects-grid">
           {filteredProjects.map((project) => (
-            <article key={project.id} className="project-card glass-card">
+            <article key={`${activeTab}-${project.id}`} className="project-card glass-card">
               <div className="project-image">
                 <img src={project.imageUrl} alt={project.title} loading="lazy" />
                 <div className="project-overlay">
@@ -48,15 +48,17 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
                   >
                     <Icons.Github />
                   </a>
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-overlay-link"
-                    aria-label="Live Demo"
-                  >
-                    <Icons.ExternalLink />
-                  </a>
+                  {project.demoLink && project.demoLink !== project.githubLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-overlay-link"
+                      aria-label="Live Demo"
+                    >
+                      <Icons.ExternalLink />
+                    </a>
+                  )}
                 </div>
               </div>
               
@@ -71,25 +73,28 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) 
                   ))}
                 </div>
                 
-                <div className="project-links">
+                <div className="project-links" style={{ justifyContent: project.demoLink && project.demoLink !== project.githubLink ? 'space-between' : 'center' }}>
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="project-link"
                     id={`project-code-${project.id}`}
+                    style={project.demoLink && project.demoLink !== project.githubLink ? {} : { width: '100%', justifyContent: 'center' }}
                   >
-                    <Icons.Code /> Code
+                    <Icons.Code /> Code & Repo
                   </a>
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                    id={`project-demo-${project.id}`}
-                  >
-                    <Icons.ExternalLink /> Demo
-                  </a>
+                  {project.demoLink && project.demoLink !== project.githubLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      id={`project-demo-${project.id}`}
+                    >
+                      <Icons.ExternalLink /> Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

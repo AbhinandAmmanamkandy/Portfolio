@@ -38,6 +38,9 @@ function App() {
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         setCurrentView('main');
+        if (!window.location.hash || window.location.hash === '#') {
+          setActiveSection('home');
+        }
       }
     };
     window.addEventListener('hashchange', handleHashChange);
