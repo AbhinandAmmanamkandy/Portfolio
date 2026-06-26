@@ -28,7 +28,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     <nav className={`navbar ${scrolled || isGithubView ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a href="#" className="logo" id="nav-logo">
-          {personalName}.
+          <span className="logo-first">{personalName.split(' ')[0]}</span>
+          <span className="logo-last"> {personalName.split(' ').slice(1).join(' ')}</span>.
         </a>
 
         {isGithubView ? (
